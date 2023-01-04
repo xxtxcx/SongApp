@@ -1,5 +1,4 @@
 import  songs  from '../../data/songs.json'
-// import  myChart  from '../../data/songs.json'
 import { ActionTypes } from '../constants/action-types';
 const initialState = {
     songs,
@@ -16,24 +15,13 @@ export const songReducer = (state = initialState.songs, {type, payload}) => {
 export const selectedSongReducer = (state = [], {type, payload}) => {
     switch(type) {
         case ActionTypes.SELECTED_SONG:
-            // return {...state.myChart, myChart: [...state, payload]}
             return [
                 ...state, payload.song
-            ];     
-        default:
-            return state;
-    }
-};
-
-
-export const removeSelectedSongReducer = (state = [], {type, payload}) => {
-    switch(type) {
+            ];    
         case ActionTypes.REMOVE_SELECTED_SONG:
-            // return {...state.myChart, myChart: [...state, payload]}
             return [
                 ...state.filter(item => item !== payload.song),
-            ];      
-              
+            ];     
         default:
             return state;
     }

@@ -3,7 +3,7 @@ import { songReducer, selectedSongReducer } from "./songReducer";
 
 export const reducers = combineReducers({
     allSongs: songReducer,
-    myChart: selectedSongReducer,
+    myChart: selectedSongReducer
 });
 
 export default reducers;
