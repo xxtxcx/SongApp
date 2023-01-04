@@ -7,11 +7,13 @@ export const SongList = (props) => {
     // const songs = useSelector((state) => state.allSongs);
     const newData = data.map((data) => {
     return(
+        
         <SongItem song={data}
          key={data.id}
          onArtistSearch={onArtistSearch}
          onAddOrDelete={onAddOrDelete}
          />
+
 
     )})
 

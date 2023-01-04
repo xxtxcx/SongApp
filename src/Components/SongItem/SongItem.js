@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSongs, selectedSong, removeSelectedSong } from '../../redux/actions/songActions';
 import Collapse from 'react-bootstrap/Collapse'
+import { ReactComponent as AddingIcon } from '../../svgs/adding.svg'
+import { ReactComponent as NoteIcon } from '../../svgs/note.svg'
 import './SongItem.css'
 
 export const SongItem = (props) => {
@@ -72,11 +74,37 @@ export const SongItem = (props) => {
     const ver1 = chordProgression.toString();
     const ver2 = ver1.replaceAll(',',' ');
     const visualChords = ver2.replaceAll('xyz','\n');
-    const className = open ? "list-group-item open-collapse" : "list-group-item"
+    const className = open ? "collapse-group open-collapse" : "collapse-group"
 
     return (
         <>
-        <div className={className}>
+    <div className="playlistPage">
+      <div className="mainInner">
+        <div className="playlistPageSongs">
+          <ul className="songList">
+            <li>
+              <div className="songIcon">
+                <NoteIcon className="noteI" onClick={() => onAddOrDelete(song.id)}>{btnAdd}</NoteIcon>
+                <AddingIcon className="playI" onClick={() => onAddOrDelete(song.id)}>{btnAdd}</AddingIcon>
+              </div>
+              <div className="songDetails">
+                <h3 onClick={() => setOpen(!open)}
+              >{title}</h3>
+                <span onClick={() => onArtistSearch(artist)}>{artist}</span>
+              </div>
+              <div className="songTime">
+                <span>{bpm}</span>
+              </div>
+              <div className="songTime">
+                <span>{originalKey}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    {/* <div className={className}>
             <a className="row-item btn-add"
             onClick={() => onAddOrDelete(song.id)}
             >{btnAdd}</a>
@@ -105,7 +133,7 @@ export const SongItem = (props) => {
             </div>
             <div className="row-item"><b>{originalKey}</b></div>
             <div className="row-item">{bpm}</div>
-        </div>
+        </div> */}
         <Collapse in={open}>
             <div className='display-linebreak' id="example-collapse-text">
             <h6>Current Key: {currKey}</h6>
