@@ -12,21 +12,8 @@ import { Provider } from 'react-redux';
 
 import './App.css';
 
-// const store = createStore(reducer);
-// const {dispatch, subscribe, getState} = store;
-// const actions = "";
-// const { inc, dec, rnd } = bindActionCreators( actions, dispatch)
+const App = () =>{
 
-const App = (props) =>{
-
-    const [chart, setChart] = useState();
-
-
-    const onAddOrDelete = (id) => {
-        // props.addOrDeleteSong(song)
-        //     setChart(song);
-             console.log(id);
-    }
   return (
    <Router>
       <div className="App">
@@ -36,7 +23,7 @@ const App = (props) =>{
           </header>
           <main>
             <Routes>
-              <Route path="/" element={<AllSongs onAddOrDelete={onAddOrDelete}/>}/>
+              <Route path="/" element={<AllSongs/>}/>
               <Route path="/my-chart" element={<MyChart/>}/>
             </Routes>
           </main>
