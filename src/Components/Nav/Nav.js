@@ -27,9 +27,9 @@ const className = "active"
           </li>
         </Link> */}
         <NavLink activestyle={className} to="/"
-                >All songs</NavLink>
+                ><HomeIcon />All songs</NavLink>
         <NavLink activestyle={className} to="/my-chart"
-                >My List</NavLink>
+                ><SearchIcon />My List</NavLink>
         {/* <Link to="/#">
           <li>
             <LibraryIcon />
