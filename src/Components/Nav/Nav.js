@@ -2,16 +2,19 @@ import React from 'react'
 import { ReactComponent as HomeIcon } from '../../svgs/home.svg'
 import { ReactComponent as SearchIcon } from '../../svgs/search.svg'
 import { ReactComponent as LibraryIcon } from '../../svgs/library.svg'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
+  
+const className = "active"
+
   return (
     <div className="navBar">
       <div className="logo">
         <h2>Ponify</h2>
       </div>
       <ul>
-        <Link to="/">
+        {/* <Link to="/">
           <li className="active">
             <HomeIcon />
             All Songs
@@ -22,7 +25,11 @@ const Nav = () => {
             <SearchIcon />
             My List
           </li>
-        </Link>
+        </Link> */}
+        <NavLink activestyle={className} to="/"
+                >All songs</NavLink>
+        <NavLink activestyle={className} to="/my-chart"
+                >My List</NavLink>
         {/* <Link to="/#">
           <li>
             <LibraryIcon />
