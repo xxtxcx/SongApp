@@ -4,15 +4,15 @@
 } */
 @font-face {
     font-family: circular-book;
-    src: url(./fonts/CircularStd-Book.otf);
+    src: url(./fonts/Rubik-Regular.ttf);
 }
 @font-face {
     font-family: circular-bold;
-    src: url(./fonts/CircularStd-Bold.otf);
+    src: url(./fonts/Rubik-Bold.ttf);
 }
 @font-face {
     font-family: circular-black;
-    src: url(./fonts/CircularStd-Black.otf);
+    src: url(./fonts/Rubik-Black.ttf);
 }
 .uppercase {
     text-transform: uppercase;
@@ -247,10 +247,10 @@ ul.songList {
 ul.songList li {
     list-style-type: none;
     width: 100%;
-    /* padding: 0.8rem; */
-    display: flex;
+    padding: 0.8rem;
+    /* display: flex; */
     align-items: center;
-    /* transition: background 0.2s ease-in-out; */
+    transition: background 0.2s ease-in-out;
 }
 ul.songList li:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -284,6 +284,14 @@ ul.songList li .songIcon svg {
     width: 15px;
     height: 15px;
 }
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 10fr repeat(2, 1fr);
+    grid-template-rows: 0,5fr;
+    grid-column-gap: 10px;
+    grid-row-gap: px;
+    }
 
 @media screen and (max-width: 414px) {
     ul.songList li .songIcon .noteI {
@@ -322,3 +330,4 @@ ul.songList li .songIcon svg {
     }
 
 }
+

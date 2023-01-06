@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSongs, selectedSong, removeSelectedSong } from '../../redux/actions/songActions';
 import Collapse from 'react-bootstrap/Collapse'
-import { ReactComponent as AddingIcon } from '../../svgs/adding.svg'
+import { ReactComponent as AddingIcon } from '../../svgs/plus.svg'
 import { ReactComponent as NoteIcon } from '../../svgs/note.svg'
+import { ReactComponent as RemoveIcon } from '../../svgs/remove.svg'
+import { ReactComponent as CheckIcon } from '../../svgs/check.svg'
+import Unibutton from '../Unibutton/Unibutton';
 import './SongItem.css'
 
 export const SongItem = (props) => {
@@ -56,21 +59,24 @@ export const SongItem = (props) => {
         return{
                song: songs.find(item => item.id == id)
     }
-        }
+    }
 
     const onAddOrDelete = (id) => {
-        console.log(id)
-        setSelected(!selected)
-        const song = selectedItem(id);
-        if(!myChart.map(song => song.id).includes(song.song.id)){
-        dispatch(selectedSong(song))
-        }
-        else{ 
-        dispatch(removeSelectedSong(song))
-        }
-        };
+      console.log(id)
+      setSelected(!selected)
+      const song = selectedItem(id);
+      if(!myChart.map(song => song.id).includes(song.song.id)){
+      dispatch(selectedSong(song))
+      }
+      else{ 
+      dispatch(removeSelectedSong(song))
+      }
+      };
 
-    const btnAdd = selected ? "X" : "+"
+      //TODO:
+    // const btnAdd = selected ? Unibutton(onAddOrDelete, song, true, btnAdd) : Unibutton(onAddOrDelete, song, false)
+
+
     const ver1 = chordProgression.toString();
     const ver2 = ver1.replaceAll(',',' ');
     const visualChords = ver2.replaceAll('xyz','\n');
@@ -83,10 +89,12 @@ export const SongItem = (props) => {
         <div className="playlistPageSongs">
           <ul className="songList">
             <li>
+              <div class="parent">
               <div className="songIcon">
-                <NoteIcon className="noteI" onClick={() => onAddOrDelete(song.id)}>{btnAdd}</NoteIcon>
-                <AddingIcon className="playI" onClick={() => onAddOrDelete(song.id)}>{btnAdd}</AddingIcon>
-              </div>
+                {/* {btnAdd} */}
+                <NoteIcon className="noteI" onClick={() => onAddOrDelete(song.id)}></NoteIcon>
+            <AddingIcon className="playI" onClick={() => onAddOrDelete(song.id)}></AddingIcon>
+                </div>
               <div className="songDetails">
                 <h3 onClick={() => setOpen(!open)}
               >{title}</h3>
@@ -98,13 +106,33 @@ export const SongItem = (props) => {
               <div className="songTime">
                 <span>{originalKey}</span>
               </div>
-            </li>
+              </div>
+              </li>
+
+              <Collapse in={open}>
+                <div className='display-linebreak' id="example-collapse-text">
+                  <h6>Current Key: {currKey}</h6>
+                    {visualChords }
+                        <div className="d-flex justify-content-center align-items-center">
+                          <button type="button"
+                              variant="info"
+                              onClick={() => changeKey(-1, chordProgression, currKey)}>-1
+                          </button>
+
+                          <button type="button"
+                              variant="info"
+                              onClick={() => changeKey(+1, chordProgression, currKey)}>+1
+                          </button>
+                            {/* <i className="fas fa-star"></i> */}
+                        </div>
+                </div>
+              </Collapse>  
           </ul>
         </div>
       </div>
     </div>
   
-    {/* <div className={className}>
+     {/* <div className={className}>
             <a className="row-item btn-add"
             onClick={() => onAddOrDelete(song.id)}
             >{btnAdd}</a>
@@ -133,25 +161,7 @@ export const SongItem = (props) => {
             </div>
             <div className="row-item"><b>{originalKey}</b></div>
             <div className="row-item">{bpm}</div>
-        </div> */}
-        <Collapse in={open}>
-            <div className='display-linebreak' id="example-collapse-text">
-            <h6>Current Key: {currKey}</h6>
-            {visualChords }
-            <div className="d-flex justify-content-center align-items-center">
-                    <button type="button"
-                        variant="info"
-                        onClick={() => changeKey(-1, chordProgression, currKey)}>-1
-                    </button>
-
-                    <button type="button"
-                        variant="info"
-                        onClick={() => changeKey(+1, chordProgression, currKey)}>+1
-                    </button>
-                    <i className="fas fa-star"></i>
-                </div>
-            </div>
-        </Collapse>        
+        </div>        */}
         </>
     )
 }
