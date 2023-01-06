@@ -52,6 +52,7 @@ body {
 }
 .navBar .logo svg {
     max-width: 130px;
+    max-height: 130px;
 }
 .navBar .logo svg p {
     fill: white;

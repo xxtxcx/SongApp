@@ -89,7 +89,7 @@ export const SongItem = (props) => {
         <div className="playlistPageSongs">
           <ul className="songList">
             <li>
-              <div class="parent">
+              <div className="parent">
               <div className="songIcon">
                 {btnAdd} 
                 {/* <NoteIcon className="noteI" onClick={() => onAddOrDelete(song.id)}></NoteIcon>
