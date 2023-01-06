@@ -1,7 +1,6 @@
 import React from 'react'
 import { ReactComponent as HomeIcon } from '../../svgs/home.svg'
 import { ReactComponent as SearchIcon } from '../../svgs/search.svg'
-import { ReactComponent as LibraryIcon } from '../../svgs/library.svg'
 import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
@@ -11,7 +10,7 @@ const className = "active"
   return (
     <div className="navBar">
       <div className="logo">
-        <h2>Ponify</h2>
+        <h2>Logo</h2>
       </div>
       <ul>
         {/* <Link to="/">

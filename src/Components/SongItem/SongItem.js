@@ -74,7 +74,7 @@ export const SongItem = (props) => {
       };
 
       //TODO:
-    // const btnAdd = selected ? Unibutton(onAddOrDelete, song, true, btnAdd) : Unibutton(onAddOrDelete, song, false)
+     const btnAdd = selected ? Unibutton(onAddOrDelete, song) : Unibutton(onAddOrDelete, song, false)
 
 
     const ver1 = chordProgression.toString();
@@ -91,9 +91,9 @@ export const SongItem = (props) => {
             <li>
               <div class="parent">
               <div className="songIcon">
-                {/* {btnAdd} */}
-                <NoteIcon className="noteI" onClick={() => onAddOrDelete(song.id)}></NoteIcon>
-            <AddingIcon className="playI" onClick={() => onAddOrDelete(song.id)}></AddingIcon>
+                {btnAdd} 
+                {/* <NoteIcon className="noteI" onClick={() => onAddOrDelete(song.id)}></NoteIcon>
+            <AddingIcon className="playI" onClick={() => onAddOrDelete(song.id)}></AddingIcon> */}
                 </div>
               <div className="songDetails">
                 <h3 onClick={() => setOpen(!open)}
