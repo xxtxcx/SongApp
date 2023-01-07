@@ -330,5 +330,10 @@ ul.songList li .songIcon svg {
         padding-left: 25px;
     }
 
+    .navBar .logo svg {
+        max-width: 70px;
+        max-height: 70px;
+    }
+
 }
 
