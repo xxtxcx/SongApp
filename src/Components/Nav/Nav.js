@@ -1,6 +1,6 @@
 import React from 'react'
 import { ReactComponent as HomeIcon } from '../../svgs/home.svg'
-import { ReactComponent as SearchIcon } from '../../svgs/search.svg'
+import { ReactComponent as LibraryIcon } from '../../svgs/library.svg'
 import { ReactComponent as LogoIcon } from '../../svgs/ponify-logo.svg'
 import { NavLink } from 'react-router-dom'
 
@@ -29,7 +29,7 @@ const className = "active"
         <NavLink activestyle={className} to="/"
                 ><HomeIcon />All songs</NavLink>
         <NavLink activestyle={className} to="/my-chart"
-                ><SearchIcon />My List</NavLink>
+                ><LibraryIcon />My List</NavLink>
         {/* <Link to="/#">
           <li>
             <LibraryIcon />
